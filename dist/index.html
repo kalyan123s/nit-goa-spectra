@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <title>SKY BOT</title>
+</head>
+
+ <!-- commmand => npx tailwindcss ./src/input.css -o ./dist/style.css --watch   -->
+
+ <body class="bg-gradient-to-r from-purple-500 to-indigo-500 text-blue-800 font-sans">
+
+    <div class="max-w-md mx-auto mt-8">
+        <div id="chat-container" class="bg-white p-4 rounded shadow-lg">
+            <!-- Chat messages will be displayed here -->
+            <div class="mb-4 animate__animated animate__fadeIn">
+                <div class="flex items-center">
+                    <div class="rounded-full bg-blue-500 text-gray-800 p-3"> <!-- Update text-white to text-gray-800 -->
+                        Bot
+                    </div>
+                    <div class="ml-3">
+                        Hello! How can I assist you today?
+                    </div>
+                </div>
+            </div>
+            <!-- More chat messages go here -->
+        </div>
+
+        <div id="input-container" class="mt-4 p-4 bg-white rounded shadow-lg">
+            <div class="flex items-center">
+                <input type="text" id="user-input" class="flex-1 px-4 py-2 border rounded-l focus:outline-none focus:border-blue-500">
+                <button onclick="sendMessage()" class="px-6 py-2 bg-blue-500 text-white rounded-r hover:bg-blue-600 transition duration-300">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+
+
+</html>

@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Additional styles for the navigation bar */
+nav {
+    background: #371c1c; /* Dark blue-gray color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #cbd5e0; /* Light gray color */
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #fff; /* White color on hover */
+}
+
+
+.hero-container {
+  background: linear-gradient(45deg, #3498db, #e74c3c);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-deco {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  z-index: -1;
+}

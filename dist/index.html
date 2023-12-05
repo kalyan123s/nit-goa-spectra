@@ -5,41 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-    <title>SKY BOT</title>
+    <title>Spectra</title>
 </head>
 
  <!-- commmand => npx tailwindcss ./src/input.css -o ./dist/style.css --watch   -->
 
- <body class="bg-gradient-to-r from-purple-500 to-indigo-500 text-blue-800 font-sans">
 
-    <div class="max-w-md mx-auto mt-8">
-        <div id="chat-container" class="bg-white p-4 rounded shadow-lg">
-            <!-- Chat messages will be displayed here -->
-            <div class="mb-4 animate__animated animate__fadeIn">
-                <div class="flex items-center">
-                    <div class="rounded-full bg-blue-500 text-gray-800 p-3"> <!-- Update text-white to text-gray-800 -->
-                        Bot
-                    </div>
-                    <div class="ml-3">
-                        Hello! How can I assist you today?
-                    </div>
+ <body class="font-sans bg-gray-100">
+
+    <!-- Navigation Menu -->
+    <nav class="p-4 text-white" data-aos="fade-down" data-aos-duration="800">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold tracking-tight">Spectra Club</a>
+            
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="hover:underline">About Us</a></li>
+                <li><a href="#events" class="hover:underline">Events</a></li>
+                <li><a href="#membership" class="hover:underline">Membership</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-container text-white py-24 text-center relative" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto">
+            <h1 class="text-4xl lg:text-6xl font-bold mb-4 leading-tight">Welcome to Spectra Club</h1>
+            <p class="text-lg lg:text-xl">Explore the intersection of technology and culture with us.</p>
+            <a href="#about" class="bg-white text-blue-500 py-2 px-4 rounded-full inline-block mt-8 hover:bg-blue-100 transition duration-300">Discover More</a>
+        </div>
+        <!-- Decorative element -->
+        <div class="hero-deco"></div>
+    </section>
+
+
+
+    <!-- Upcoming Events -->
+    <section id="events" class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-8">Upcoming Events</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Example event card -->
+                <div class="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-duration="800">
+                    <h3 class="text-xl lg:text-2xl font-bold mb-2">Event Title</h3>
+                    <p class="text-gray-600">Date: March 15, 2023</p>
+                    <p class="text-gray-600">Time: 7:00 PM</p>
+                    <a href="#" class="text-blue-500 hover:underline inline-block mt-3 transition-colors duration-300">Learn More</a>
                 </div>
+                <div class="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-duration="800">
+                    <h3 class="text-xl lg:text-2xl font-bold mb-2">Event Title</h3>
+                    <p class="text-gray-600">Date: March 15, 2023</p>
+                    <p class="text-gray-600">Time: 7:00 PM</p>
+                    <a href="#" class="text-blue-500 hover:underline inline-block mt-3 transition-colors duration-300">Learn More</a>
+                </div>
+                <div class="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-duration="800">
+                    <h3 class="text-xl lg:text-2xl font-bold mb-2">Event Title</h3>
+                    <p class="text-gray-600">Date: March 15, 2023</p>
+                    <p class="text-gray-600">Time: 7:00 PM</p>
+                    <a href="#" class="text-blue-500 hover:underline inline-block mt-3 transition-colors duration-300">Learn More</a>
+                </div>
+                <!-- Repeat similar cards for other events -->
             </div>
-            <!-- More chat messages go here -->
         </div>
+    </section>
 
-        <div id="input-container" class="mt-4 p-4 bg-white rounded shadow-lg">
-            <div class="flex items-center">
-                <input type="text" id="user-input" class="flex-1 px-4 py-2 border rounded-l focus:outline-none focus:border-blue-500">
-                <button onclick="sendMessage()" class="px-6 py-2 bg-blue-500 text-white rounded-r hover:bg-blue-600 transition duration-300">Send</button>
-            </div>
+    <!-- About Us Section -->
+    <section id="about" class="bg-white py-16">
+        <div class="container mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-4">About Us</h2>
+            <p class="text-gray-600 text-lg lg:text-xl mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur id justo at efficitur.</p>
+            <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded-full inline-block hover:bg-blue-600 transition duration-300">Our Story</a>
         </div>
-    </div>
+    </section>
 
-    <script src="app.js"></script>
+    <!-- Membership Section -->
+    <section id="membership" class="bg-gray-100 py-16">
+        <div class="container mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-4">Membership</h2>
+            <p class="text-gray-600 text-lg lg:text-xl mb-8">Join us to be part of an amazing community passionate about technology and culture.</p>
+            <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded-full inline-block hover:bg-blue-600 transition duration-300">Become a Member</a>
+        </div>
+    </section>
+
+    <!-- Initialize AOS library -->
+    <script>
+        AOS.init();
+    </script>
+
 </body>
-
-
 
 </html>

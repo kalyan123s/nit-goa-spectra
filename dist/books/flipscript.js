@@ -1,41 +1,51 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const pdfViewerContainer = document.getElementById('pdf-viewer');
 
-    $(function () {
-        const pdfPath = 'sample.pdf';
+    if (!pdfViewerContainer) {
+        console.error("PDF viewer container not found.");
+        return;
+    }
 
-        $('#flipbook').turn({
-            elevation: 50, // Adjust the 3D effect
-            gradients: true, // Add gradients for a realistic look
-            autoCenter: true, // Auto center the flip book
-            duration: 1000 // Set the duration for page turn animation
-        });
+    const pdfPath = './dist/books/sample.pdf';
 
-        PDFJS.getDocument(pdfPath).then(function (pdf) {
-            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                pdf.getPage(pageNum).then(function (page) {
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    const viewport = page.getViewport({ scale: 1.5 });
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://mozilla.github.io/pdf.js/build/pdf.worker.js';
 
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
+    // Fetch the PDF document
+    pdfjsLib.getDocument(pdfPath).then(function (pdfDocument) {
+        // Loop through each page in the PDF
+        for (let pageNum = 1; pageNum <= pdfDocument.numPages; pageNum++) {
+            // Create a container for each page
+            const pageContainer = document.createElement('div');
+            pageContainer.className = 'pdf-page';
 
-                    const renderContext = {
-                        canvasContext: context,
-                        viewport: viewport
-                    };
+            // Append the page container to the PDF viewer
+            pdfViewerContainer.appendChild(pageContainer);
 
-                    page.render(renderContext).promise.then(function () {
-                        const pageElement = $('<div class="page">').html('<img src="' + canvas.toDataURL() + '">');
-                        if (pageNum % 2 === 0) {
-                            pageElement.addClass('even');
-                        } else {
-                            pageElement.addClass('odd');
-                        }
+            // Render the page into the container
+            pdfDocument.getPage(pageNum).then(function (page) {
+                const viewport = page.getViewport({ scale: 1.5 });
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
 
-                        $('#flipbook').turn('addPage', pageElement, pageNum);
-                    });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+
+                page.render(renderContext).promise.then(function () {
+                    // Append the canvas to the page container
+                    pageContainer.appendChild(canvas);
+                }).catch(function (error) {
+                    console.error('Error rendering page:', error);
                 });
-            }
-        });
+            }).catch(function (error) {
+                console.error('Error getting page:', error);
+            });
+        }
+    }).catch(function (error) {
+        console.error('Error loading PDF:', error);
     });
-
+});

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+    #flipbook {
+        width: 600px;
+        height: 400px;
+        perspective: 1000px; /* Add 3D effect */
+    }
+
+    #flipbook .page {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: transform 0.5s;
+    }
+
+    #flipbook .page img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #flipbook .odd {
+        transform: rotateY(0deg);
+    }
+
+    #flipbook .even {
+        transform: rotateY(180deg);
+    }

@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         #pdf-container {
-            width: 400px;
-            height: 400px;
+            width: 800px; /* Adjust width as needed */
+            height: 600px; /* Adjust height as needed */
             border: 1px solid #ccc;
             overflow: hidden;
             margin: auto;
@@ -18,16 +18,36 @@
         #pdf-canvas {
             display: block;
         }
+
+        #navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .navigation-btn {
+            padding: 8px 12px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
-<body class="bg-gray-100 h-screen flex items-center justify-center">
+<body class="bg-gray-100 h-screen flex flex-col items-center justify-center">
 
     <div id="pdf-container">
         <canvas id="pdf-canvas"></canvas>
     </div>
 
-    <script src="pdf.js"></script>
+    <div id="navigation-buttons" class="flex">
+        <button id="prev-page-btn" class="navigation-btn">Previous Page</button>
+        <button id="next-page-btn" class="navigation-btn">Next Page</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.js"></script>
     <script src="f.js"></script>
 
 </body>

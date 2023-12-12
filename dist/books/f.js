@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const pdfPath = 'sample.pdf'; // Replace with the path to your PDF file
+    const pdfPath = './dist/books/sample.pdf'; // Replace with the path to your PDF file
+    const pdfContainer = document.getElementById('pdf-container');
     const canvas = document.getElementById('pdf-canvas');
     const context = canvas.getContext('2d');
 
     // Initialize PDF.js
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://mozilla.github.io/pdf.js/build/pdf.worker.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.js';
 
     // Fetch PDF and render it to the canvas
     pdfjsLib.getDocument(pdfPath).promise.then(function (pdfDocument) {
         // Load the first page of the PDF
         pdfDocument.getPage(1).then(function (page) {
-            const viewport = page.getViewport({ scale: 1.5 });
+            const viewport = page.getViewport({ scale: 1 });
             canvas.width = viewport.width;
             canvas.height = viewport.height;
 

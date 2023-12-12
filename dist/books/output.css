@@ -615,6 +615,10 @@ video {
   display: grid;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -625,6 +629,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -670,6 +678,10 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-4 {
@@ -752,6 +764,12 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -776,33 +794,73 @@ video {
   transition-duration: 300ms;
 }
 
+/* Additional styles for the navigation bar */
+
+nav {
+  background: #371c1c;
+  /* Dark blue-gray color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: #cbd5e0;
+  /* Light gray color */
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+  /* White color on hover */
+}
+
+.hero-container {
+  background: linear-gradient(45deg, #3498db, #e74c3c);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-deco {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
+  z-index: -1;
+}
+
+/* for flip book  */
+
 #flipbook {
   width: 600px;
   height: 400px;
-  perspective: 1000px;
-  /* Add 3D effect */
 }
 
-#flipbook .page {
+.pdf-page {
   width: 100%;
   height: 100%;
+  perspective: 1000px;
+  /* Add 3D effect */
   transform-style: preserve-3d;
   backface-visibility: hidden;
   transition: transform 0.5s;
 }
 
-#flipbook .page img {
+.pdf-page img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-#flipbook .odd {
+.odd {
   transform: rotateY(0deg);
 }
 
-#flipbook .even {
+.even {
   transform: rotateY(180deg);
 }
 

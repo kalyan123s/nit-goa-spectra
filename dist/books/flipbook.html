@@ -6,25 +6,25 @@
     <title>Resources</title>
     <link rel="stylesheet" href="output.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <script src="flipscript.js"></script>
+    
+    <script src="f.js"></script>
 
 </head>
- <!-- npx tailwindcss -i ./dist/books/input.css -o ./dist/books/output.css --watch -->
+ <!-- npx tailwindcss ./src/input.css -o ./dist/books/output.css --watch -->
 
- <body class="bg-gray-100 h-screen flex items-center justify-center">
 
-    <div class="w-3/4 h-3/4 bg-white border shadow-md rounded-md p-4">
-        <p class="text-gray-700">PDF Viewer</p>
-        <div id="pdf-viewer" class="border-t mt-4 pt-4">
-            <!-- PDF viewer content will be added dynamically using JavaScript -->
-        </div>
+
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+
+    <div id="flipbook" class="bg-white shadow-lg p-8 rounded-md">
+        <!-- Pages will go here -->
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.js"></script>
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-    <script src="flipscript.js"></script>
+    <!-- <script src="f.js"></script> -->
 
 </body>
-
 
 
 </html>
